@@ -1,6 +1,6 @@
 <?php
 
-include_once('daoLivro.php');
+include_once('daoDiario.php');
 include_once('db.php');
 
 function stopIsset() {
@@ -16,8 +16,8 @@ if(isset($_POST['inserir'])){
     $nDevolvidos = $_POST['n_devolvidos'];
     $nEmpretimo = $_POST['n_emprestimo'];
 
-    if($titulo != '' && $autor != '' && $editora != ""){
-        inserir($connection, new Livro($titulo, $autor, $editora));
+    if($data != '' && $nVisitantes != '' && $nRetirados != "" && $nDevolvidos != "" && $nEmpretimo != ""){
+        inserir($connection, new Diario($data, $nVisitantes, $nRetirados, $nDevolvidos, $nEmpretimo));
     }
 
     stopIsset();
@@ -30,15 +30,17 @@ if(isset($_POST["deletar"])){
 
 if(isset($_POST["atualizar"])){
 
-    $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $editora = $_POST['editora'];
+    $data = $_POST['data'];
+    $nVisitantes = $_POST['n_visitantes'];
+    $nRetirados = $_POST['n_retirados'];
+    $nDevolvidos = $_POST['n_devolvidos'];
+    $nEmpretimo = $_POST['n_emprestimo'];
     $id = $_POST['id'];
 
-    if($titulo != '' && $autor != '' && $editora != '' && $id != ''){
-        $livro = new Livro($titulo, $autor, $editora);
-        $livro->setId($id);
-        atualizar($connection, $livro);
+    if($data != '' && $nVisitantes != '' && $nRetirados != "" && $nDevolvidos != "" && $nEmpretimo != ""){
+        $diario = new Diario($data, $nVisitantes, $nRetirados, $nDevolvidos, $nEmpretimo);
+        $diario->setId($id);
+        atualizar($connection, $diario);
     }
 
     stopIsset();

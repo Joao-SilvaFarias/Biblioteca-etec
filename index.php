@@ -8,7 +8,7 @@
 <body>
     <?php
     include_once('config.php');
-    include_once('daoLivro.php');
+    include_once('daoDiario.php');
 
     lista($connection);
     ?>

@@ -1,6 +1,6 @@
 <?php
 
-include_once('diaro.php');
+include_once('diario.php');
 
 function inserir($connection, Diario $diario){
     $data = $diario->getData();
@@ -8,7 +8,7 @@ function inserir($connection, Diario $diario){
     $nRetirados = $diario->getRetirados();
     $nDevolvidos = $diario->getDevolvidos();
     $nEmprestimo = $diario->getEmprestimo();
-    $sql = "insert into diario (_data, numero_visitantes, numero_livros_retirados, numero_livros_devolvidos, numero_livros_emprestimo) values (?, ?, ?, ?);";
+    $sql = "insert into diario (_data, numero_visitantes, numero_livros_retirados, numero_livros_devolvidos, numero_livros_emprestimo) values (?, ?, ?, ?, ?);";
     $stmt = $connection->prepare($sql);
     $stmt->bind_param("siiii", $data, $nVisitantes, $nRetirados, $nDevolvidos, $nEmprestimo);
     $stmt->execute();
