@@ -10,9 +10,11 @@ function stopIsset() {
 
 if(isset($_POST['inserir'])){
 
-    $titulo = $_POST['titulo'];
-    $autor = $_POST['autor'];
-    $editora = $_POST['editora'];
+    $data = $_POST['data'];
+    $nVisitantes = $_POST['n_visitantes'];
+    $nRetirados = $_POST['n_retirados'];
+    $nDevolvidos = $_POST['n_devolvidos'];
+    $nEmpretimo = $_POST['n_emprestimo'];
 
     if($titulo != '' && $autor != '' && $editora != ""){
         inserir($connection, new Livro($titulo, $autor, $editora));
