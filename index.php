@@ -13,9 +13,11 @@
     lista($connection);
     ?>
     <form action="" method="post">
-        <input type="text" name="titulo" id="">
-        <input type="text" name="autor" id="">
-        <input type="text" name="editora" id="">
+        <input type="date" name="data" id="data">
+        <input type="number" name="n_visitantes" id="n_visitantes" placeholder="Número de visitantes">
+        <input type="number" name="n_livros_retirados" id="n_livros_retirados" placeholder="Número de livros retirados">
+        <input type="number" name="n_livros_devolvidos" id="n_livros_devolvidos" placeholder="Número de livros devolvidos">
+        <input type="number" name="n_livros_emprestimo" id="n_livros_emprestimo" placeholder="Número de livros em empréstimo">
         <input type="submit" value="Inserir" name="inserir">
     </form>
 </body>

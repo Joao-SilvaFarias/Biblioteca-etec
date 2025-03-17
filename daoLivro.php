@@ -1,14 +1,14 @@
 <?php
 
-include_once('livro.php');
+include_once('diaro.php');
 
-function inserir($connection, Livro $livro){
-    $titulo = $livro->getTitulo();
+function inserir($connection, Diario $livro){
+    $data = $livro->getTit;
     $autor = $livro->getAutor();
     $editora = $livro->getEditora();
-    $sql = "insert into livro (titulo, autor, editora) values (?, ?, ?);";
+    $sql = "insert into diario (_data, numero_visitantes, numero_livros_retirados, numero_livros_devolvidos, numero_livros_emprestimo) values (?, ?, ?, ?);";
     $stmt = $connection->prepare($sql);
-    $stmt->bind_param("sss", $titulo, $autor, $editora);
+    $stmt->bind_param("siii", $titulo, $autor, $editora);
     $stmt->execute();
 }
 
