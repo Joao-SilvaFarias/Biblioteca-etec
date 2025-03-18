@@ -20,7 +20,7 @@ function lista($connection){
     $stmt->execute();
     $result = $stmt->get_result();
     while($row = $result->fetch_assoc()){
-        $id = $
+        $id = $row["id"];
         $data = $row["_data"];
         $nVisitantes = $row["numero_visitantes"];
         $nRetirados = $row["numero_livros_retirados"];
