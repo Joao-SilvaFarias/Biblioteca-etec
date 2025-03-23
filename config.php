@@ -3,6 +3,8 @@
 include_once('emprestimoDao.php');
 include_once('db.php');
 
+$emprestimoDao = new emprestimoDao($connection);
+
 function stopIsset() {
     header("Location: index.php");
     exit();
@@ -14,7 +16,7 @@ if(isset($_POST['inserir'])){
     $horario = $_POST['horario'];
 
     if($dataEmprestimo != '' && $horario != ""){
-        inserir($connection, new Emprestimo($dataEmprestimo,$horario));  
+        $emprestimoDao->inserir(new Emprestimo($dataEmprestimo,$horario));  
     }
 
     stopIsset();
@@ -22,7 +24,7 @@ if(isset($_POST['inserir'])){
 
 if(isset($_POST["deletar"])){
     $id = $_POST["id"];
-    deletar($connection, $id);
+    $emprestimoDao->deletar($id);
 }
 
 if(isset($_POST["atualizar"])){
@@ -34,7 +36,7 @@ if(isset($_POST["atualizar"])){
     if($dataEmprestimo != '' && $horario != ""){
         $emprestimo = new Emprestimo($dataEmprestimo,$horario);
         $emprestimo->setId($id);
-        atualizar($connection, $emprestimo);
+        $emprestimoDao->atualizar($emprestimo);
     }
 
     stopIsset();

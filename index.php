@@ -9,11 +9,10 @@
     <?php
     include_once("config.php");
 
-    lista($connection);
+    $emprestimoDao->lista();
     ?>
     <form action="" method="post">
         <input type="date" name="data-emprestimo" id="data-emprestimo">
-        <input type="date" name="data-devolucao" id="data-devolucao">
         <select name="horario" id="horario">
             <option value="Manhã">Manhã</option>
             <option value="Tarde">Tarde</option>

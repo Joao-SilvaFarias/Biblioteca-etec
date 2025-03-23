@@ -4,18 +4,24 @@ include_once("usuario.php");
 
 class UsuarioDao{
 
-    public function inserir($connection, Usuario $usuario){
+    private $connection;
+
+    public function __construct($connection){
+        $this->connection = $connection;
+    }
+
+    public function inserir(Usuario $usuario){
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();
-        $sql = "insert into usuario (nome, email) values (?, ?);";
-        $stmt = $connection->prepare($sql);
+        $sql = "insert into usuarios (nome, email) values (?, ?);";
+        $stmt = $this->connection->prepare($sql);
         $stmt->bindParam("ss", $nome, $email);
         $stmt->execute();
     }
 
-    public function listar($connection){
-        $sql = "select * from usuario;";
-        $stmt = $connection->prepare($sql);
+    public function listar(){
+        $sql = "select * from usuarios;";
+        $stmt = $this->connection->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
@@ -33,19 +39,19 @@ class UsuarioDao{
         }
     }
 
-    public function atualizar($connection, Usuario $usuario){
+    public function atualizar(Usuario $usuario){
         $nome = $usuario->getNome();
         $email = $usuario->getEmail();
         $id = $usuario->getId();
-        $sql = "update usuario set nome = ?, email = ? where id = ?;";
-        $stmt = $connection->prepare($sql);
+        $sql = "update usuarios set nome = ?, email = ? where id = ?;";
+        $stmt = $this->connection->prepare($sql);
         $stmt->bindParam("ssi", $nome, $email, $id);
         $stmt->execute();
     }
 
-    public function deletar($connection, $id){
-        $sql = "delete from usuario where id = ?;";
-        $stmt = $connection->prepare($sql);
+    public function deletar($id){
+        $sql = "delete from usuarios where id = ?;";
+        $stmt = $this->connection->prepare($sql);
         $stmt->bindParam("i", $id);
         $stmt->execute();
     }
