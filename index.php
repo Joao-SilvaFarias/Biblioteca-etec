@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    include_once("config.php");
+    include_once("botoesEmprestimo.php");
 
     $emprestimoDao->lista();
     ?>
