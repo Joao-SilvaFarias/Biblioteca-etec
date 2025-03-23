@@ -7,17 +7,18 @@
 </head>
 <body>
     <?php
-    include_once('config.php');
-    include_once('daoDiario.php');
+    include_once("config.php");
 
     lista($connection);
     ?>
     <form action="" method="post">
-        <input type="date" name="data" id="data">
-        <input type="number" name="n_visitantes" id="n_visitantes" placeholder="Número de visitantes">
-        <input type="number" name="n_retirados" id="n_retirados" placeholder="Número de livros retirados">
-        <input type="number" name="n_devolvidos" id="n_devolvidos" placeholder="Número de livros devolvidos">
-        <input type="number" name="n_emprestimo" id="n_emprestimo" placeholder="Número de livros em empréstimo">
+        <input type="date" name="data-emprestimo" id="data-emprestimo">
+        <input type="date" name="data-devolucao" id="data-devolucao">
+        <select name="horario" id="horario">
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+        </select>
         <input type="submit" value="Inserir" name="inserir">
     </form>
 </body>

@@ -1,6 +1,6 @@
 <?php
 
-include_once('daoDiario.php');
+include_once('emprestimoDao.php');
 include_once('db.php');
 
 function stopIsset() {
@@ -10,14 +10,11 @@ function stopIsset() {
 
 if(isset($_POST['inserir'])){
 
-    $data = $_POST['data'];
-    $nVisitantes = $_POST['n_visitantes'];
-    $nRetirados = $_POST['n_retirados'];
-    $nDevolvidos = $_POST['n_devolvidos'];
-    $nEmpretimo = $_POST['n_emprestimo'];
+    $dataEmprestimo = $_POST['data-emprestimo'];
+    $horario = $_POST['horario'];
 
-    if($data != '' && $nVisitantes != '' && $nRetirados != "" && $nDevolvidos != "" && $nEmpretimo != ""){
-        inserir($connection, new Diario($data, $nVisitantes, $nRetirados, $nDevolvidos, $nEmpretimo));
+    if($dataEmprestimo != '' && $horario != ""){
+        inserir($connection, new Emprestimo($dataEmprestimo,$horario));  
     }
 
     stopIsset();
@@ -30,17 +27,14 @@ if(isset($_POST["deletar"])){
 
 if(isset($_POST["atualizar"])){
 
-    $data = $_POST['data'];
-    $nVisitantes = $_POST['n_visitantes'];
-    $nRetirados = $_POST['n_retirados'];
-    $nDevolvidos = $_POST['n_devolvidos'];
-    $nEmpretimo = $_POST['n_emprestimo'];
+    $dataEmprestimo = $_POST['data-emprestimo'];
+    $horario = $_POST['horario'];
     $id = $_POST['id'];
 
-    if($data != '' && $nVisitantes != '' && $nRetirados != "" && $nDevolvidos != "" && $nEmpretimo != ""){
-        $diario = new Diario($data, $nVisitantes, $nRetirados, $nDevolvidos, $nEmpretimo);
-        $diario->setId($id);
-        atualizar($connection, $diario);
+    if($dataEmprestimo != '' && $horario != ""){
+        $emprestimo = new Emprestimo($dataEmprestimo,$horario);
+        $emprestimo->setId($id);
+        atualizar($connection, $emprestimo);
     }
 
     stopIsset();

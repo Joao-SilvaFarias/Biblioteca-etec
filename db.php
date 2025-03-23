@@ -3,7 +3,7 @@
 $server = 'localhost';
 $user = 'root';
 $password = 'Jv,40028922';
-$database = 'Biblioteca_etec';
+$database = 'BibliotecaDaRenata';
 
 $connection = mysqli_connect($server, $user, $password, $database);
 
