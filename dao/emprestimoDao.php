@@ -1,6 +1,6 @@
 <?php
 
-include_once('emprestimo.php');
+include_once('../obj/emprestimo.php');
 
 class EmprestimoDao{
     private $connection;

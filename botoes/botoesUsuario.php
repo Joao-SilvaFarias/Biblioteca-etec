@@ -1,7 +1,7 @@
 <?php
 
-include_once('usuarioDao.php');
-include_once('db.php');
+include_once('../dao/usuarioDao.php');
+include_once('../db/db.php');
 
 $usuarioDao = new UsuarioDao($connection);
 

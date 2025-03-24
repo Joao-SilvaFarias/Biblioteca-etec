@@ -1,5 +1,7 @@
 <?php
 
+include_once("../obj/livro.php");
+
 class LivroDao{
     private $connection;
 
@@ -11,9 +13,9 @@ class LivroDao{
         $titulo = $livro->getTitulo();
         $autor = $livro->getAutor();
         $cod = $livro->getCod();
-        $sql = "insert into livros (titulo, autor, codigo_verificacao) values (?, ?, ?);";
+        $sql = "insert into livros (titulo, autor, codigo_identificacao) values (?, ?, ?);";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam("sss", $titulo, $autor, $cod);
+        $stmt->bind_param("sss", $titulo, $autor, $cod);
         $stmt->execute();
     }
 
@@ -25,17 +27,17 @@ class LivroDao{
         while ($row = $result->fetch_assoc()) {
             $titulo = $row["titulo"];
             $autor = $row["autor"];
-            $cod = $row["cod"];
+            $cod = $row["codigo_identificacao"];
             $id = $row["id"];
-            `<div class="livro">
-            <p>$titulo</p>
-            <p>$autor</p>
-            <p>$cod</p>
-            <form method="post">
-            <input type="hidden" value="$id">
-            <input type="submit" value="deletar">
-            </form> 
-            </div>`;
+            echo "<div class='livro'>
+                    <p>$titulo</p>
+                    <p>$autor</p>
+                    <p>$cod</p>
+                    <form method='post'>
+                        <input type='hidden' value='$id'>
+                        <input type='submit' value='deletar'>
+                    </form> 
+                </div>";
         }
     }
 
@@ -44,16 +46,16 @@ class LivroDao{
         $autor = $livro->getAutor();
         $cod = $livro->getCod();
         $id = $livro->getId();
-        $sql = "update livros set titulo = ?, autor = ?, codigo_verificacao = ? where id = ?;";
+        $sql = "update livros set titulo = ?, autor = ?, codigo_identificacao = ? where id = ?;";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam("sssi", $titulo, $autor, $cod, $id);
+        $stmt->bind_param("sssi", $titulo, $autor, $cod, $id);
         $stmt->execute();
     }
 
     public function deletar($id){
         $sql = "delete from livros where id = ?;";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam("i", $id);
+        $stmt->bind_param("i", $id);
         $stmt->execute();
     }
 }

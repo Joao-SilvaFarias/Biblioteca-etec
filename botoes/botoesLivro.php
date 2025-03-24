@@ -1,12 +1,13 @@
 <?php
 
-include_once('livroDao.php');
-include_once('db.php');
+include_once('../dao/livroDao.php');
+include_once('../db/db.php');
+
 
 $livroDao = new LivroDao($connection);
 
 function stopIsset() {
-    header("Location: pagUsuario.php");
+    header("Location: pagLivro.php");
     exit();
 }
 

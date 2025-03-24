@@ -1,6 +1,6 @@
 <?php
 
-include_once("usuario.php");
+include_once("../obj/usuario.php");
 
 class UsuarioDao{
 
@@ -15,7 +15,7 @@ class UsuarioDao{
         $email = $usuario->getEmail();
         $sql = "insert into usuarios (nome, email) values (?, ?);";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam("ss", $nome, $email);
+        $stmt->bind_param("ss", $nome, $email);
         $stmt->execute();
     }
 
@@ -28,14 +28,14 @@ class UsuarioDao{
             $nome = $row["nome"];
             $email = $row["email"];
             $id = $row["id"];
-            `<div class="usuario">
-            <p>$nome</p>
-            <p>$email</p>
-            <form method="post">
-            <input type="hidden" value="$id">
-            <input type="submit" value="deletar">
-            </form> 
-            </div>`;
+            echo "<div class='usuario'>
+                    <p>$nome</p>
+                    <p>$email</p>
+                    <form method='post'>
+                        <input type='hidden' value='$id'>
+                        <input type='submit' value='deletar'>
+                    </form> 
+                </div>";
         }
     }
 
@@ -45,14 +45,14 @@ class UsuarioDao{
         $id = $usuario->getId();
         $sql = "update usuarios set nome = ?, email = ? where id = ?;";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam("ssi", $nome, $email, $id);
+        $stmt->bind_param("ssi", $nome, $email, $id);
         $stmt->execute();
     }
 
     public function deletar($id){
         $sql = "delete from usuarios where id = ?;";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bindParam("i", $id);
+        $stmt->bind_param("i", $id);
         $stmt->execute();
     }
 

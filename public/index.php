@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    include_once("botoesEmprestimo.php");
+    include_once("../botoes/botoesEmprestimo.php");
 
     $emprestimoDao->lista();
     ?>
