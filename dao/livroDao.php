@@ -34,8 +34,8 @@ class LivroDao{
                     <p>$autor</p>
                     <p>$cod</p>
                     <form method='post'>
-                        <input type='hidden' value='$id'>
-                        <input type='submit' value='deletar'>
+                        <input type='hidden' value='$id' name='id'>
+                        <input type='submit' name='deletar' value='Deletar'>
                     </form> 
                 </div>";
         }
