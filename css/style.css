@@ -1,0 +1,232 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: "Montserrat";
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    width: 100%;
+    height: 110px;
+    padding-inline: 70px;
+    background-color: #7A4EFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+}
+
+.header-titulo{
+    color: white;
+    font-size: 1rem;
+}
+
+nav{
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.link-nav{
+    color: white;
+    font-size: 1rem;
+    font-weight: 300;
+    transition: 0.3s;
+}
+
+.link-nav:hover{
+    color: black;
+}
+
+main{
+    width: 80%;
+    margin-top: 60px;
+    box-shadow: -2px 2px 3px rgb(86, 86, 86);
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.div-titulo{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 170px;
+}
+
+.titulo{
+    font-size: 1.8rem;
+}
+
+.subtitulo{
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+section{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.registros{
+    width: 70%;
+    padding: 30px;
+}
+
+.form-registros{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.campos-form-registros{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.campo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.input-registros{
+    width: 160px;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: -2px 2px 3px rgb(86, 86, 86);
+    padding: 10px;
+    text-align: left;
+}
+
+.label-campo-registro{
+    font-weight: 700;
+}
+
+.btn-enviar{
+    width: 100%;
+    height: 40px;
+    background-color: #7A4EFF;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-enviar:hover{
+    background-color: #5034a5;
+    cursor: pointer;
+}
+
+.diarios{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.diario{
+    width: 100%;
+    height: 60px;
+    background-color: #D6C9FF;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    align-items: center;
+}
+
+.diario p{
+    font-weight: 700;
+}
+
+.btn-deletar-diario{
+    padding: 5px;
+    border: none;
+    background-color: #7A4EFF;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+    font-weight: 500;
+}
+
+.btn-deletar-diario:hover{
+    background-color: #5034a5;
+}
+
+.gerencia{
+    width: 30%;
+    background-color: #D6C9FF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    padding-inline: 20px;
+    padding-top: 50px;
+    padding-bottom: 20px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.campo-gerencia{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.input-gerencia{
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    box-shadow: -2px 2px 3px rgb(86, 86, 86);
+    padding: 10px;
+    text-align: left;
+}
+
+.titulo-gerencia{
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+
+.label-campo-gerencia{
+    font-weight: 700;
+}
+
+@media screen and (max-width: 1024px) {
+    section{
+        flex-direction: column-reverse;
+    }
+    .gerencia{
+        width: 100%;
+    }
+
+    .registros{
+        width: 100%;
+    }
+}
