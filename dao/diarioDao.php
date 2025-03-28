@@ -37,10 +37,13 @@ class DiarioDao{
                     <p>$qtdEmprestimos</p>
                     <p>$qtdDevolvidos</p>
                     <p>$qtdRenovacoes</p>
+                    <div class='buttons'>
                     <form method='post'>
                         <input type='hidden' value='$id' name='id'>
                         <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
                     </form>
+                    <button onclick='abrirForm($id, $data,  $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes)' class='btn-deletar-diario'>Editar</button>
+                    </div>
                 </div>";
         }
     }

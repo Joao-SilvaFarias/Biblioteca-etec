@@ -218,6 +218,26 @@ section{
     font-weight: 700;
 }
 
+.form-registros-atualizar{
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    padding: 10px;
+    transform: translate(-50%, -50%);
+    display: none;
+    flex-direction: column;
+    gap: 50px;
+    width: 80%;
+    background-color: #D6C9FF;
+    box-shadow: -2px 2px 3px rgb(86, 86, 86);
+    border-radius: 10px;
+}
+
+.buttons{
+    display: flex;
+    gap: 5px;
+}
+
 @media screen and (max-width: 1024px) {
     section{
         flex-direction: column-reverse;

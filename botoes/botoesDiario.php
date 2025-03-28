@@ -43,7 +43,7 @@ if(isset($_POST["atualizar"])){
         $diarioDao->atualizar($diario);
     }
 
-    stopIsset();
 }
+
 
 ?>
