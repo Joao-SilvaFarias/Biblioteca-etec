@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="css/style.css">
     <title>Biblioteca Ermelinda</title>
 </head>
 
 <body>
     <?php
-    include_once("../botoes/botoesDiario.php");
+    include_once("botoes/botoesDiario.php");
     ?>
     <header>
         <h1 class="header-titulo">Biblioteca Ermelinda</h1>
@@ -32,19 +32,19 @@
         <div class="campos-form-registros">
             <div class="campo">
                 <label for="" class="label-campo-registro">Data</label>
-                <input type="date" name="data" id="" class="input-registros">
+                <input type="date" name="data" id="data" class="input-registros">
             </div>
             <div class="campo">
                 <label for="" class="label-campo-registro">Qtd. Emprestimos</label>
-                <input type="number" name="qtdEmprestimos" id="" class="input-registros" placeholder="00">
+                <input type="number" name="qtdEmprestimos" id="emprestimos" class="input-registros" placeholder="00">
             </div>
             <div class="campo">
                 <label for="" class="label-campo-registro">Qtd. Devolvidos</label>
-                <input type="number" name="qtdDevolvidos" id="" class="input-registros" placeholder="00">
+                <input type="number" name="qtdDevolvidos" id="devolvidos" class="input-registros" placeholder="00">
             </div>
             <div class="campo">
                 <label for="" class="label-campo-registro">Qtd. Renovações</label>
-                <input type="number" name="qtdRenovacoes" id="" class="input-registros" placeholder="00">
+                <input type="number" name="qtdRenovacoes" id="renovacoes" class="input-registros" placeholder="00">
             </div>
             <input type='hidden' name='id' class='id'>
         </div>
@@ -98,7 +98,7 @@
             </div>
         </section>
     </main>
-    <script src="../js/script.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

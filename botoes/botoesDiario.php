@@ -1,12 +1,12 @@
 <?php
 
-include_once('../dao/diarioDao.php');
-include_once('../db/db.php');
+include_once('./dao/diarioDao.php');
+include_once('./db/db.php');
 
 $diarioDao = new DiarioDao($connection);
 
 function stopIsset() {
-    header("Location: home.php");
+    header("Location: index.php");
     exit();
 }
 

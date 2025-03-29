@@ -1,6 +1,6 @@
 <?php
 
-include_once('../obj/diario.php');
+include_once('./obj/diario.php');
 
 class DiarioDao{
     private $connection;
@@ -31,9 +31,10 @@ class DiarioDao{
             $qtdEmprestimos = $row["qtd_emprestimos"];
             $qtdDevolvidos = $row["qtd_devolvidos"];
             $qtdRenovacoes = $row["qtd_renovacoes"];
+            $dataFormatada = date("d/m/Y", strtotime($data)); 
     
             echo "<div class='diario'>
-                    <p>$data</p>
+                    <p>$dataFormatada</p>
                     <p>$qtdEmprestimos</p>
                     <p>$qtdDevolvidos</p>
                     <p>$qtdRenovacoes</p>
@@ -42,7 +43,7 @@ class DiarioDao{
                         <input type='hidden' value='$id' name='id'>
                         <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
                     </form>
-                    <button onclick='abrirForm($id, $data,  $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes)' class='btn-deletar-diario'>Editar</button>
+                    <button onclick='abrirForm($id, \"$dataFormatada\",  $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes)' class='btn-deletar-diario'>Editar</button>
                     </div>
                 </div>";
         }
