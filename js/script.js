@@ -5,3 +5,7 @@ function abrirForm(id, data, qtdEmprestimos, qtdDevolvidos, qtdRenovacoes){
     document.querySelector('#renovacoes').value = qtdRenovacoes;
     document.querySelector('.form-registros-atualizar').style.display = 'flex';
 }
+
+function closeUpdate(){
+    document.querySelector('.form-registros-atualizar').style.display = 'none';
+}

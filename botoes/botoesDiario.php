@@ -16,9 +16,15 @@ if(isset($_POST['inserir'])){
     $qtdEmprestimos = $_POST['qtdEmprestimos'];
     $qtdDevolvidos = $_POST['qtdDevolvidos'];
     $qtdRenovacoes = $_POST['qtdRenovacoes'];
+    $bibliotecario = $_POST['bibliotecario'];
+    
 
-    if($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != ""){
-        $diarioDao->inserir(new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes));  
+    if($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != ""){
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario);
+        if($_POST['assistente']){
+            $diario->setAssistente($_POST['assistente']);
+        }
+        $diarioDao->inserir($diario);  
     }
 
     stopIsset();
@@ -35,14 +41,19 @@ if(isset($_POST["atualizar"])){
     $qtdEmprestimos = $_POST['qtdEmprestimos'];
     $qtdDevolvidos = $_POST['qtdDevolvidos'];
     $qtdRenovacoes = $_POST['qtdRenovacoes'];
+    $bibliotecario = $_POST['bibliotecario'];
     $id = $_POST['id'];
 
-    if($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != ""){
-        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes);
-        $diario->setId($id);
-        $diarioDao->atualizar($diario);
+    if($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != ""){
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario);
+        if($_POST['assistente']){
+            $diario->setAssistente($_POST['assistente']);
+        }
+        $diario->setId( $id );
+        $diarioDao->atualizar($diario);  
     }
 
+    stopIsset();
 }
 
 

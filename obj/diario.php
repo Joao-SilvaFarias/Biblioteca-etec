@@ -7,12 +7,15 @@ class Diario{
     private $qtdEmprestimos;
     private $qtdDevolvidos;
     private $qtdRenovacoes;
+    private $bibliotecario;
+    private $assistente;
 
-    public function __construct($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes) {
+    public function __construct($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario) {
         $this->data = $data;
         $this->qtdEmprestimos = $qtdEmprestimos;
         $this->qtdDevolvidos = $qtdDevolvidos;
         $this->qtdRenovacoes = $qtdRenovacoes;
+        $this->bibliotecario = $bibliotecario;
     }
 
     public function getId() {
@@ -53,6 +56,22 @@ class Diario{
 
     public function setQtdRenovacoes($qtdRenovacoes){
         $this->qtdRenovacoes = $qtdRenovacoes; 
+    }
+
+    public function getBibliotecario(){
+        return $this->bibliotecario;
+    }
+
+    public function setBibliotecario($bibliotecario){
+        $this->bibliotecario=$bibliotecario;
+    }
+
+    public function getAssistente(){
+        return $this->assistente;
+    }
+
+    public function setAssistente($assistente){
+        $this->assistente = $assistente;
     }
 
 }
