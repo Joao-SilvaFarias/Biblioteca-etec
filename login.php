@@ -22,6 +22,7 @@
         <input type="password" name="senha" class="input-form" placeholder="Senha" required>
         </div>
         <input type="submit" value="Entrar" name="login" class="btn-cadastro">
+        <a href="cadastro.php" class="link-cadastro">Cadastrar-se</a>
     </form>
     </div>
 </body>

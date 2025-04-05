@@ -19,7 +19,7 @@ if (isset($_POST['inserir'])) {
 
 
     if ($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != "") {
-        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $_SESSION["id"]);
         if ($_POST['assistente']) {
             $diario->setAssistente($_POST['assistente']);
         }
@@ -46,7 +46,7 @@ if (isset($_POST["atualizar"])) {
     $id = $_POST['id'];
 
     if ($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != "") {
-        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $_SESSION["id"]);
         if ($_POST['assistente']) {
             $diario->setAssistente($_POST['assistente']);
         }
@@ -67,7 +67,7 @@ if (isset($_POST["atualizar2"])) {
     $id = $_POST['id'];
 
     if ($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != "") {
-        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $_SESSION["id"]);
         if ($_POST['assistente']) {
             $diario->setAssistente($_POST['assistente']);
         }

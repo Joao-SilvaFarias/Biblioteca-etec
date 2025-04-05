@@ -2,7 +2,6 @@
 
 include_once('./dao/usuarioDao.php');
 include_once('./db/db.php');
-session_start();
 
 $usuarioDao = new UsuarioDAO($connection);
 
@@ -13,7 +12,10 @@ if (isset($_POST["cadastrar"])) {
     $cSenha = $_POST["cSenha"];
     if(!empty($nome) && !empty($email) && !empty($senha) && !empty($cSenha)){
         if($senha == $cSenha){
-            $usuarioDao->inserir(new Usuario($nome, $email, $senha));
+            $id = $usuarioDao->inserir(new Usuario($nome, $email, $senha));
+            if($id){
+                $_SESSION["id"] = $id;
+            }
         }
     }
 }
@@ -26,7 +28,6 @@ if(isset($_POST["login"])){
         $id = $usuarioDao->login($email, $senha);
         if($id){
             $_SESSION["id"] = $id;
-            echo $id;
         }
     }
 }

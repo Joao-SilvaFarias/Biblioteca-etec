@@ -25,7 +25,7 @@ form.appendChild(search);
 btnClose.addEventListener("click", () => {
     divLogo.style.display = 'flex';
     navBar.style.display = 'flex';
-    header.style.justifyContent = 'space-between';
+    header.style.justifyContent = 'space-between'
     header.removeChild(form)
     header.removeChild(btnClose);
 

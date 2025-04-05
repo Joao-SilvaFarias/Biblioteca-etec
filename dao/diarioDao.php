@@ -1,6 +1,9 @@
 <?php
 
 include_once('./obj/diario.php');
+if(session_status() == PHP_SESSION_NONE){
+    session_start();
+}
 
 class DiarioDao
 {
@@ -19,24 +22,25 @@ class DiarioDao
         $qtdRenovacoes = $diario->getQtdRenovacoes();
         $bibliotecario = $diario->getBibliotecario();
         $periodo = $diario->getPeriodo();
+        $fk_usuario = $diario->getFkUsuario();
         if ($diario->getAssistente()) {
             $assistente = $diario->getAssistente();
-            $sql = "insert into diario (_data, qtd_emprestimos, qtd_devolvidos, qtd_renovacoes, bibliotecario, periodo, assistente) values (?, ?, ?, ?, ?, ?, ?);";
+            $sql = "insert into diario (_data, qtd_emprestimos, qtd_devolvidos, qtd_renovacoes, bibliotecario, periodo, assistente, fk_usuario) values (?, ?, ?, ?, ?, ?, ?, ?);";
             $stmt = $this->connection->prepare($sql);
-            $stmt->bind_param("siiisss", $data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $assistente);
+            $stmt->bind_param("siiisssi", $data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $assistente, $fk_usuario);
         } else {
-            $sql = "insert into diario (_data, qtd_emprestimos, qtd_devolvidos, qtd_renovacoes, bibliotecario, periodo) values (?, ?, ?, ?, ?, ?);";
+            $sql = "insert into diario (_data, qtd_emprestimos, qtd_devolvidos, qtd_renovacoes, bibliotecario, periodo, fk_usuario) values (?, ?, ?, ?, ?, ?, ?);";
             $stmt = $this->connection->prepare($sql);
-            $stmt->bind_param("siiiss", $data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+            $stmt->bind_param("siiissi", $data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $fk_usuario);
         }
         $stmt->execute();
     }
 
     function lista($periodo1)
     {
-        $sql = "select * from diario where periodo = ?;";
+        $sql = "select * from diario where periodo = ? and fk_usuario = ?;";
         $stmt = $this->connection->prepare($sql);
-        $stmt->bind_param("s", $periodo1);
+        $stmt->bind_param("si", $periodo1, $_SESSION["id"]);
         $stmt->execute();
         $result = $stmt->get_result();
         while ($row = $result->fetch_assoc()) {
@@ -86,6 +90,7 @@ class DiarioDao
         $qtdRenovacoes = $diario->getQtdRenovacoes();
         $bibliotecario = $diario->getBibliotecario();
         $periodo = $diario->getPeriodo();
+        $fkUsuario = $diario->getFkUsuario();
         $id = $diario->getId();
         if ($diario->getAssistente()) {
             $assistente = $diario->getAssistente();
@@ -115,9 +120,9 @@ class DiarioDao
 
         if ($periodo != "Geral") {
             $pesquisa = "%$pesquisa1%";
-            $sql = "select * from diario where _data like ? and periodo = ?";
+            $sql = "select * from diario where _data like ? and periodo = ? and fk_usuario = ?";
             $stmt = $this->connection->prepare($sql);
-            $stmt->bind_param("ss", $pesquisa, $periodo);
+            $stmt->bind_param("ssi", $pesquisa, $periodo, $_SESSION["id"]);
 
             $stmt->execute();
             $result = $stmt->get_result();
@@ -164,9 +169,9 @@ class DiarioDao
             }
         } else{
             $pesquisa = "%$pesquisa1%";
-            $sql = "select * from diario where _data like ?;";
+            $sql = "select * from diario where _data like ? and fk_usuario = ?;";
             $stmt = $this->connection->prepare($sql);
-            $stmt->bind_param("s", $pesquisa);
+            $stmt->bind_param("si", $pesquisa, $_SESSION["id"]);
 
             $stmt->execute();
             $result = $stmt->get_result();

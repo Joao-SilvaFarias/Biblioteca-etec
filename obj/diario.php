@@ -10,14 +10,16 @@ class Diario{
     private $bibliotecario;
     private $assistente;
     private $periodo;
+    private $fkUsuario;
 
-    public function __construct($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo) {
+    public function __construct($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo, $fkUsuario) {
         $this->data = $data;
         $this->qtdEmprestimos = $qtdEmprestimos;
         $this->qtdDevolvidos = $qtdDevolvidos;
         $this->qtdRenovacoes = $qtdRenovacoes;
         $this->bibliotecario = $bibliotecario;
         $this->periodo = $periodo;
+        $this->fkUsuario = $fkUsuario;
     }
 
     public function getId() {
@@ -84,6 +86,13 @@ class Diario{
         $this->periodo = $periodo;
     }
 
+    public function getFkUsuario(){
+        return $this->fkUsuario;
+    }
+
+    public function setFkUsuario($fkUsuario){
+        $this->fkUsuario = $fkUsuario;
+    }
 
 }
 
