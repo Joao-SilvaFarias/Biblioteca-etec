@@ -5,12 +5,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <style>
+        .diarios {
+            margin-top: 0;
+            padding: 20px;
+        }
+    </style>
     <title>Biblioteca Ermelinda</title>
 </head>
 
 <body>
+    <header class="header">
+        <div class="div-logo">
+            <a href="index.php"><img src="img/logo.png" alt="Logo" class="logo"></a>
+        </div>
+        <nav class="nav-bar">
+            <a href="index.php" class="link-nav">Home</a>
+            <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
+            <a href="#" class="link-nav">Login</a>
+        </nav>
+    </header>
     <?php
     $periodo = $_GET["periodo"];
+    $pesquisa = $_GET["pesquisa"];
     echo "<script>alert($periodo)</script>";
     include_once("botoes/botoesDiario.php");
     $bibliotecario = $_GET["bibliotecario"];
@@ -62,7 +79,7 @@
                         value="<?php echo $renovacoes ?>" >
                 </div>
                 <input type='hidden' name='id' class='id' value="<?php echo $id ?>">
-                <input type="submit" value="Confirmar" class="btn-enviar" name="atualizar">
+                <input type="submit" value="Confirmar" class="btn-enviar" name="atualizar2">
             </div>
             <div class="gerencia" style="padding-top: 0;">
                 <h3 class="titulo-gerencia">Gerência</h3>
@@ -79,55 +96,22 @@
             </div>
         </section>
     </form>
+    <div class="div-titulo">
+        <div>
+            <h1 class="titulo">Período</h1>
+            <h2 class="subtitulo">M-TEC MANHÃ</h2>
+        </div>
+    </div>
     <main>
         <form action="" method="post">
-            <section>
-                <div class="registros">
-                    <div class="form-registros">
-                        <div class="campos-form-registros">
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Data</label>
-                                <input type="date" name="data" id="data" class="input-registros">
-                            </div>
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Qtd. Emprestimos</label>
-                                <input type="number" name="qtdEmprestimos" id="emprestimos" class="input-registros"
-                                    placeholder="00">
-                            </div>
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Qtd. Devolvidos</label>
-                                <input type="number" name="qtdDevolvidos" id="devolvidos" class="input-registros"
-                                    placeholder="00">
-                            </div>
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Qtd. Renovações</label>
-                                <input type="number" name="qtdRenovacoes" id="renovacoes" class="input-registros"
-                                    placeholder="00">
-                            </div>
-                        </div>
-                        <input type="submit" value="Enviar" class="btn-enviar" name="inserir">
-                    </div>
-                    <div class="diarios">
-                        <?php
-
-                        $diarioDao->lista($periodo);
-
-                        ?>
-                    </div>
-                </div>
-                <div class="gerencia">
-                    <h3 class="titulo-gerencia">Gerência</h3>
-                    <div class="campo-gerencia">
-                        <label for="" class="label-campo-gerencia">Bibliotecário</label>
-                        <input type="text" name="bibliotecario" id="" class="input-gerencia"
-                            placeholder="Nome completo">
-                    </div>
-                    <div class="campo-gerencia">
-                        <label for="" class="label-campo-gerencia">Assistente(Opcional)</label>
-                        <input type="text" name="assistente" id="" class="input-gerencia" placeholder="Nome completo">
-                    </div>
-                </div>
-            </section>
+            <div class="diarios">
+                <?php
+                $pesquisa = $_GET["pesquisa"];
+                include_once("botoes/botoesDiario.php");
+                $diarioDao->pesquisar($pesquisa);
+                ?>
+            </div>
+            </div>
         </form>
     </main>
 

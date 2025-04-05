@@ -5,37 +5,35 @@ include_once('./db/db.php');
 
 $diarioDao = new DiarioDao($connection);
 
-function stopIsset() {
-    header("Location: index.php");
-    exit();
-}
 
-if(isset($_POST['inserir'])){
+if (isset($_POST['inserir'])) {
 
     $data = $_POST['data'];
     $qtdEmprestimos = $_POST['qtdEmprestimos'];
     $qtdDevolvidos = $_POST['qtdDevolvidos'];
     $qtdRenovacoes = $_POST['qtdRenovacoes'];
     $bibliotecario = $_POST['bibliotecario'];
-    
 
-    if($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != ""){
-        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario);
-        if($_POST['assistente']){
+
+    if ($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != "") {
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+        if ($_POST['assistente']) {
             $diario->setAssistente($_POST['assistente']);
         }
-        $diarioDao->inserir($diario);  
+        $diarioDao->inserir($diario);
     }
 
-    stopIsset();
+    header("Location: library.php?periodo=$periodo");
+    exit();
 }
 
-if(isset($_POST["deletar"])){
+
+if (isset($_POST["deletar"])) {
     $id = $_POST["id"];
     $diarioDao->deletar($id);
 }
 
-if(isset($_POST["atualizar"])){
+if (isset($_POST["atualizar"])) {
 
     $data = $_POST['data'];
     $qtdEmprestimos = $_POST['qtdEmprestimos'];
@@ -44,16 +42,45 @@ if(isset($_POST["atualizar"])){
     $bibliotecario = $_POST['bibliotecario'];
     $id = $_POST['id'];
 
-    if($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != ""){
-        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario);
-        if($_POST['assistente']){
+    if ($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != "") {
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+        if ($_POST['assistente']) {
             $diario->setAssistente($_POST['assistente']);
         }
-        $diario->setId( $id );
-        $diarioDao->atualizar($diario);  
+        $diario->setId($id);
+        $diarioDao->atualizar($diario);
     }
 
-    stopIsset();
+    header("location: library.php?periodo=$periodo");
+}
+
+if (isset($_POST["atualizar2"])) {
+
+    $data = $_POST['data'];
+    $qtdEmprestimos = $_POST['qtdEmprestimos'];
+    $qtdDevolvidos = $_POST['qtdDevolvidos'];
+    $qtdRenovacoes = $_POST['qtdRenovacoes'];
+    $bibliotecario = $_POST['bibliotecario'];
+    $id = $_POST['id'];
+
+    if ($data != '' && $qtdEmprestimos != "" && $qtdDevolvidos != "" && $qtdRenovacoes != "" && $bibliotecario != "") {
+        $diario = new Diario($data, $qtdEmprestimos, $qtdDevolvidos, $qtdRenovacoes, $bibliotecario, $periodo);
+        if ($_POST['assistente']) {
+            $diario->setAssistente($_POST['assistente']);
+        }
+        $diario->setId($id);
+        $diarioDao->atualizar($diario);
+    }
+
+    header("location: lista.php?periodo=$periodo&pesquisa=$pesquisa");
+}
+
+if (isset($_POST['pesquisar'])) {
+    $pesquisa = $_POST['barraPesquisa'];
+
+    header("location: lista.php?pesquisa=$pesquisa&periodo=$periodo");
+    exit();
+
 }
 
 
