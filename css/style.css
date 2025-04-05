@@ -338,6 +338,72 @@ section{
     color: #000;
 }
 
+.form-cadastro{
+    width: 500px;
+    height: 600px;
+    border-radius: 10px;
+    padding: 20px;
+    position: absolute;
+    background-color: #7A4EFF;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.input-form{
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    font-weight: 500;
+    border: none;
+    outline: none;
+}
+
+.btn-cadastro{
+    width: 100%;
+    padding: 10px;
+    background-color: #D6C9FF;
+    border: none;
+    border-radius: 10px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.btn-cadastro:hover{
+    background-color: #afa5cf;
+}
+
+.campos-form{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 100%;
+}
+
+.periodo{
+    width: 100%;
+    padding: 50px;
+    border: none;
+    border-radius: 10px;
+    background-color: #7A4EFF;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.periodo:hover{
+    background-color: #5034a5;
+}
+
 @media screen and (max-width: 1024px) {
     section{
         flex-direction: column-reverse;
@@ -355,7 +421,7 @@ section{
     }
 
     main{
-        margin-top: 300px;
+        margin-top: 100px;
     }
 
     header{
@@ -383,6 +449,10 @@ section{
         width: 100%;
         text-align: left;
         padding: 20px;
+    }
+
+    .div-titulo{
+        margin-top: 400px;
     }
 
 }

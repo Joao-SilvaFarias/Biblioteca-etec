@@ -22,13 +22,17 @@
         <nav class="nav-bar">
             <a href="index.php" class="link-nav">Home</a>
             <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
-            <a href="#" class="link-nav">Login</a>
+            <a href="login.php" class="link-nav">Login</a>
         </nav>
     </header>
     <div class="div-titulo">
         <div>
             <h1 class="titulo">Período</h1>
-            <h2 class="subtitulo">M-TEC MANHÃ</h2>
+            <h2 class="subtitulo">M-TEC <?php $periodo = $_GET["periodo"];
+            if(empty($periodo)){
+                $periodo = "Geral";
+            }
+            echo $periodo;?></h2>
         </div>
     </div>
     <main>
@@ -36,8 +40,12 @@
             <div class="diarios">
                 <?php
                 include_once("botoes/botoesDiario.php");
+                if(!isset($_SESSION["id"])){
+                    header("location: login.php");
+                    exit();
+                }
                 $pesquisa = $_GET["pesquisa"];
-                $diarioDao->pesquisar($pesquisa);
+                $diarioDao->pesquisar($pesquisa, $periodo);      
                 ?>
             </div>
             </div>

@@ -110,57 +110,109 @@ class DiarioDao
         $stmt->execute();
     }
 
-    function pesquisar($pesquisa1)
+    function pesquisar($pesquisa1, $periodo)
     {
+
+        if ($periodo != "Geral") {
             $pesquisa = "%$pesquisa1%";
-            $sql = "select * from diario where _data like ?";
+            $sql = "select * from diario where _data like ? and periodo = ?";
+            $stmt = $this->connection->prepare($sql);
+            $stmt->bind_param("ss", $pesquisa, $periodo);
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $id = $row["id"];
+                    $data = $row["_data"];
+                    $qtdEmprestimos = $row["qtd_emprestimos"];
+                    $qtdDevolvidos = $row["qtd_devolvidos"];
+                    $qtdRenovacoes = $row["qtd_renovacoes"];
+                    $bibliotecario = $row['bibliotecario'];
+                    $assistente = $row['assistente'];
+                    $periodo = $row['periodo'];
+                    $dataFormatada = date("d/m/Y", strtotime($data));
+
+                    echo "<div class='diario'>
+                            <div class='item'>
+                            <p class='title-item' >Data</p>
+                            <p>$dataFormatada</p>
+                            </div>
+                            <div class='item'>
+                            <p class='title-item' >Emprestimos</p>
+                            <p>$qtdEmprestimos</p>
+                            </div>
+                            <div class='item'>
+                            <p class='title-item' >Devolvidos</p>
+                            <p>$qtdDevolvidos</p>
+                            </div>
+                            <div class='item'>
+                            <p class='title-item' >Renovações</p>
+                            <p>$qtdRenovacoes</p>
+                            </div>
+                            <div class='buttons'>
+                            <form method='post'>
+                                <input type='hidden' value='$id' name='id'>
+                                <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
+                            </form>
+                            <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Editar</a></div>
+                            </div>
+                        </div>";
+                }
+            } else {
+                echo "<h1>Nenhum resultado encontrado</h1>";
+            }
+        } else{
+            $pesquisa = "%$pesquisa1%";
+            $sql = "select * from diario where _data like ?;";
             $stmt = $this->connection->prepare($sql);
             $stmt->bind_param("s", $pesquisa);
-        
-        $stmt->execute();
-        $result = $stmt->get_result();
-        if($result->num_rows > 0) {
-            while ($row = $result->fetch_assoc()) {
-                $id = $row["id"];
-                $data = $row["_data"];
-                $qtdEmprestimos = $row["qtd_emprestimos"];
-                $qtdDevolvidos = $row["qtd_devolvidos"];
-                $qtdRenovacoes = $row["qtd_renovacoes"];
-                $bibliotecario = $row['bibliotecario'];
-                $assistente = $row['assistente'];
-                $periodo = $row['periodo'];
-                $dataFormatada = date("d/m/Y", strtotime($data));
-    
-                echo "<div class='diario'>
-                        <div class='item'>
-                        <p class='title-item' >Data</p>
-                        <p>$dataFormatada</p>
-                        </div>
-                        <div class='item'>
-                        <p class='title-item' >Emprestimos</p>
-                        <p>$qtdEmprestimos</p>
-                        </div>
-                        <div class='item'>
-                        <p class='title-item' >Devolvidos</p>
-                        <p>$qtdDevolvidos</p>
-                        </div>
-                        <div class='item'>
-                        <p class='title-item' >Renovações</p>
-                        <p>$qtdRenovacoes</p>
-                        </div>
-                        <div class='buttons'>
-                        <form method='post'>
-                            <input type='hidden' value='$id' name='id'>
-                            <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
-                        </form>
-                        <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Editar</a></div>
-                        </div>
-                    </div>";
+
+            $stmt->execute();
+            $result = $stmt->get_result();
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $id = $row["id"];
+                    $data = $row["_data"];
+                    $qtdEmprestimos = $row["qtd_emprestimos"];
+                    $qtdDevolvidos = $row["qtd_devolvidos"];
+                    $qtdRenovacoes = $row["qtd_renovacoes"];
+                    $bibliotecario = $row['bibliotecario'];
+                    $assistente = $row['assistente'];
+                    $periodo = "Geral";
+                    $dataFormatada = date("d/m/Y", strtotime($data));
+
+                    echo "<div class='diario'>
+                            <div class='item'>
+                            <p class='title-item' >Data</p>
+                            <p>$dataFormatada</p>
+                            </div>
+                            <div class='item'>
+                            <p class='title-item' >Emprestimos</p>
+                            <p>$qtdEmprestimos</p>
+                            </div>
+                            <div class='item'>
+                            <p class='title-item' >Devolvidos</p>
+                            <p>$qtdDevolvidos</p>
+                            </div>
+                            <div class='item'>
+                            <p class='title-item' >Renovações</p>
+                            <p>$qtdRenovacoes</p>
+                            </div>
+                            <div class='buttons'>
+                            <form method='post'>
+                                <input type='hidden' value='$id' name='id'>
+                                <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
+                            </form>
+                            <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Editar</a></div>
+                            </div>
+                        </div>";
+                }
+            } else {
+                echo "<h1>Nenhum resultado encontrado</h1>";
             }
-        } else {
-            echo "<h1>Nenhum resultado encontrado</h1>";
         }
-        
+
     }
 }
 

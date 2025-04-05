@@ -22,7 +22,7 @@
         <nav class="nav-bar">
             <a href="index.php" class="link-nav">Home</a>
             <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
-            <a href="#" class="link-nav">Login</a>
+            <a href="login.php" class="link-nav">Login</a>
         </nav>
     </header>
     <?php
@@ -30,6 +30,10 @@
     $pesquisa = $_GET["pesquisa"];
     echo "<script>alert($periodo)</script>";
     include_once("botoes/botoesDiario.php");
+    if(!isset($_SESSION["id"])){
+        header("location: login.php");
+        exit();
+    }
     $bibliotecario = $_GET["bibliotecario"];
     $assistente = $_GET["assistente"];
     $emprestimos = $_GET["emprestimos"];
@@ -51,12 +55,12 @@
     <div class="div-titulo">
         <div>
             <h1 class="titulo">Período</h1>
-            <h2 class="subtitulo">M-TEC MANHÃ</h2>
+            <h2 class="subtitulo">M-TEC <?php $periodo = $_GET["periodo"]; echo $periodo;?></h2>
         </div>
     </div>
     <form action="" method="post" class="form-registros-atualizar">
         <section>
-            <div class="btn-close"><a href="<?php echo 'library.php?periodo='.$periodo?>">X</a></div>
+            <div class="btn-close"><a href="<?php echo 'lista.php?periodo='.$periodo.'&pesquisa='.$pesquisa?>">X</a></div>
             <div class="campos-form-registros">
                 <div class="campo">
                     <label for="" class="label-campo-registro">Data</label>
@@ -108,7 +112,7 @@
                 <?php
                 $pesquisa = $_GET["pesquisa"];
                 include_once("botoes/botoesDiario.php");
-                $diarioDao->pesquisar($pesquisa);
+                $diarioDao->pesquisar($pesquisa, $periodo);
                 ?>
             </div>
             </div>

@@ -19,7 +19,7 @@
         <nav class="nav-bar">
             <a href="index.php" class="link-nav">Home</a>
             <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
-            <a href="" class="link-nav">Login</a>
+            <a href="login.php" class="link-nav">Login</a>
         </nav>
     </header>
     <div class="div-titulo">
@@ -27,10 +27,10 @@
             <h1 class="titulo">Selecione o período</h1>
         </div>
     </div>
-    <main>
-        <button class="periodo"><a href="library.php?periodo=Manhã">Manhã</a></button>
-        <button class="periodo"><a href="library.php?periodo=Tarde">Tarde</a></button>
-        <button class="periodo"><a href="library.php?periodo=Noite">Noite</a></button>
+    <main style="gap: 20px; display: flex; flex-direction: column;">
+    <a href="library.php?periodo=Manhã"><button class="periodo">Manhã</button></a>
+    <a href="library.php?periodo=Tarde"><button class="periodo">Tarde</button></a>
+    <a href="library.php?periodo=Noite"><button class="periodo">Noite</button></a>
     </main>
 
     <script src="js/script.js"></script>

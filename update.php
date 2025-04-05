@@ -13,6 +13,10 @@
     $periodo = $_GET["periodo"];
     echo "<script>alert($periodo)</script>";
     include_once("botoes/botoesDiario.php");
+    if(!isset($_SESSION["id"])){
+        header("location: login.php");
+        exit();
+    }
     $bibliotecario = $_GET["bibliotecario"];
     $assistente = $_GET["assistente"];
     $emprestimos = $_GET["emprestimos"];
@@ -28,7 +32,7 @@
         <nav class="nav-bar">
             <a href="index.php" class="link-nav">Home</a>
             <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
-            <a href="#" class="link-nav">Login</a>
+            <a href="login.php" class="link-nav">Login</a>
         </nav>
     </header>
     <div class="div-titulo">
@@ -123,7 +127,7 @@
                             placeholder="Nome completo">
                     </div>
                     <div class="campo-gerencia">
-                        <label for="" class="label-campo-gerencia">Assistente(Opcional)</label>
+                        <label for="" class="label-campo-gerencia">Assistente(opcional)</label>
                         <input type="text" name="assistente" id="" class="input-gerencia" placeholder="Nome completo">
                     </div>
                 </div>
