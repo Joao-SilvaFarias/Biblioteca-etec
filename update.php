@@ -67,17 +67,17 @@
                 </div>
                 <div class="campo">
                     <label for="" class="label-campo-registro">Qtd. Emprestimos</label>
-                    <input type="number" name="qtdEmprestimos" id="emprestimos" class="input-registros" placeholder="00"
+                    <input type="number" min="0" name="qtdEmprestimos" id="emprestimos" class="input-registros" placeholder="00"
                         value="<?php echo $emprestimos ?>" >
                 </div>
                 <div class="campo">
                     <label for="" class="label-campo-registro">Qtd. Devolvidos</label>
-                    <input type="number" name="qtdDevolvidos" id="devolvidos" class="input-registros" placeholder="00"
+                    <input type="number" min="0" name="qtdDevolvidos" id="devolvidos" class="input-registros" placeholder="00"
                         value="<?php echo $devolvidos ?>" >
                 </div>
                 <div class="campo">
                     <label for="" class="label-campo-registro">Qtd. Renovações</label>
-                    <input type="number" name="qtdRenovacoes" id="renovacoes" class="input-registros" placeholder="00"
+                    <input type="number" min="0" name="qtdRenovacoes" id="renovacoes" class="input-registros" placeholder="00"
                         value="<?php echo $renovacoes ?>" >
                 </div>
                 <input type='hidden' name='id' class='id' value="<?php echo $id ?>">

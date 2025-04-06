@@ -60,17 +60,17 @@
                             </div>
                             <div class="campo">
                                 <label for="" class="label-campo-registro">Qtd. Emprestimos</label>
-                                <input type="number" name="qtdEmprestimos" id="emprestimos" class="input-registros"
+                                <input type="number" min="0" name="qtdEmprestimos" id="emprestimos" class="input-registros"
                                     placeholder="00" >
                             </div>
                             <div class="campo">
                                 <label for="" class="label-campo-registro">Qtd. Devolvidos</label>
-                                <input type="number" name="qtdDevolvidos" id="devolvidos" class="input-registros"
+                                <input type="number" min="0" name="qtdDevolvidos" id="devolvidos" class="input-registros"
                                     placeholder="00" >
                             </div>
                             <div class="campo">
                                 <label for="" class="label-campo-registro">Qtd. Renovações</label>
-                                <input type="number" name="qtdRenovacoes" id="renovacoes" class="input-registros"
+                                <input type="number" min="0" name="qtdRenovacoes" id="renovacoes" class="input-registros"
                                     placeholder="00" >
                             </div>
                         </div>
