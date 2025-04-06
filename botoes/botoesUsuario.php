@@ -32,4 +32,10 @@ if(isset($_POST["login"])){
     }
 }
 
+if(isset($_POST["btnSair"])){
+    session_destroy();
+    header("location: login.php");
+    exit();
+}
+
 ?>

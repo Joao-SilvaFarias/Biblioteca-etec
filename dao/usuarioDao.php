@@ -31,6 +31,7 @@ class UsuarioDao
         if ($resul->num_rows > 0) {
             $row = $resul->fetch_assoc();
             header("location: index.php");
+            $_SESSION["nome"] = $row["nome"];
             return $row["id"];
         } else {
             echo "<script>alert('Usuário não encontrado')</script>";
@@ -47,6 +48,7 @@ class UsuarioDao
         if ($resul->num_rows > 0) {
             $row = $resul->fetch_assoc();
             header("location: index.php");
+            $_SESSION["nome"] = $row["nome"];
             return $row["id"];
         } else {
             echo "<script>alert('Usuário não encontrado')</script>";

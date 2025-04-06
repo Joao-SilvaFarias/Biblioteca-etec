@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -21,29 +21,32 @@
             <div class="logo-top">
                 <img src="img/logo2.png" alt="" width="100px">
             </div>
-            <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
-                <div class="imagem">
-                    <img src="img/user_icon.png" alt="" width="50px">
-                </div>
-                <h1 class="title" style="font-size: 1.5rem">Bem vindo à biblioteca</h1>
-            </div>
-            <div class="campos-form">
-                <h1 class="title" style="font-size: 1.5rem; width: 550px; display: flex; justify-content: flex-start;">
-                    Login</h1>
-                <div class="inputs-group">
-                    <div class="icon">
-                        <img src="img/email.png" alt="" width="25px">
+            <div class="container-cadastro">
+                <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                    <div class="imagem">
+                        <img src="img/user_icon.png" alt="" width="50px">
                     </div>
-                    <input type="email" name="email" class="input-form" placeholder="Insira seu E-mail" required>
+                    <h1 class="title" style="font-size: 1.5rem">Bem vindo à biblioteca</h1>
                 </div>
-                <div class="inputs-group">
-                    <div class="icon">
-                        <img src="img/lock.png" alt="" width="25px">
+                <div class="campos-form">
+                    <h1 class="title"
+                        style="font-size: 1.5rem; width: 100%; display: flex; justify-content: flex-start;">
+                        Login</h1>
+                    <div class="inputs-group">
+                        <div class="icon">
+                            <img src="img/email.png" alt="" width="25px">
+                        </div>
+                        <input type="email" name="email" class="input-form" placeholder="Insira seu E-mail" required>
                     </div>
-                    <input type="password" name="senha" class="input-form" placeholder="Senha" required>
+                    <div class="inputs-group">
+                        <div class="icon">
+                            <img src="img/lock.png" alt="" width="25px">
+                        </div>
+                        <input type="password" name="senha" class="input-form" placeholder="Senha" required>
+                    </div>
+                    <input type="submit" value="Entrar" name="login" class="btn-cadastro">
+                    <a href="cadastro.php" class="link-cadastro">Cadastrar-se</a>
                 </div>
-                <input type="submit" value="Entrar" name="login" class="btn-cadastro">
-                <a href="cadastro.php" class="link-cadastro">Cadastrar-se</a>
             </div>
         </form>
     </div>

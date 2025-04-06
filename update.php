@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -30,10 +30,24 @@
             <a href="index.php"><img src="img/logo.png" alt="Logo" class="logo"></a>
         </div>
         <nav class="nav-bar">
-            <a href="index.php" class="link-nav">Home</a>
-            <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
-            <a href="library.php" class="link-nav" style="font-weight: 600;">Library</a>
-            <a href="login.php" class="link-nav">Login</a>
+            <a href="#" onclick="openSearchBar()" class="link-nav">Pesquisar</a>
+            <a href="index.php" class="link-nav" style="font-weight: 600;">Biblioteca</a>
+            <a class="link-nav" <?php 
+            if (isset($_SESSION["nome"])) {
+                echo "href='#' id='inicial' style='height: 50px; width: 50px; border-radius: 25px; display: flex; justify-content: center; align-items: center; background-color: #5034a5; font-weight: 700;'";
+            } else{
+                echo "href='login.php'";            }
+            ?>>
+                <?php
+                
+                if (isset($_SESSION["nome"])) {
+                    echo substr(trim($_SESSION["nome"]),0,1);
+                }else{
+                    echo "Login";
+                }
+                
+                ?>
+            </a>
         </nav>
     </header>
     <div class="div-titulo">
@@ -44,7 +58,7 @@
     </div>
     <form action="" method="post" class="form-registros-atualizar">
         <section>
-            <div class="btn-close"><a href="<?php echo 'library.php?periodo='.$periodo?>">X</a></div>
+            <div class="btn-close"><a href="<?php echo 'diario.php?periodo='.$periodo?>">X</a></div>
             <div class="campos-form-registros">
                 <div class="campo">
                     <label for="" class="label-campo-registro">Data</label>

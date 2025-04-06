@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,15 +12,48 @@
         include_once("botoes/botoesUsuario.php");
         ?>
     <form method="post" class="form-cadastro">
-    <h1 class="title"style="color: #fff;">Cadastro</h1>
-        <div class="campos-form">
-        <input type="text" name="nome" class="input-form" placeholder="Nome" required>
-        <input type="email" name="email" class="input-form" placeholder="E-mail" required>
-        <input type="password" name="senha" class="input-form" placeholder="Senha" required>
-        <input type="password" name="cSenha" class="input-form" placeholder="Confirmar senha" required>
-        </div>
-        <input type="submit" value="Cadastrar" name="cadastrar" class="btn-cadastro">
-    </form>
+            <div class="logo-top">
+                <img src="img/logo2.png" alt="" width="100px">
+            </div>
+            <div class="container-cadastro">
+                <div style="display: flex; flex-direction: column; gap: 20px; align-items: center;">
+                    <div class="imagem">
+                        <img src="img/user_icon.png" alt="" width="50px">
+                    </div>
+                    <h1 class="title" style="font-size: 1.5rem">Bem vindo à biblioteca</h1>
+                </div>
+                <div class="campos-form" style="gap: 20px;">
+                    <h1 class="title"
+                        style="font-size: 1.5rem; width: 100%; display: flex; justify-content: flex-start;">
+                        Cadastro</h1>
+                    <div class="inputs-group">
+                        <div class="icon">
+                            <img src="img/nome_icon.png" alt="" width="25px">
+                        </div>
+                        <input type="text" name="nome" class="input-form" placeholder="Insira seu Nome" required>
+                    </div>
+                    <div class="inputs-group">
+                        <div class="icon">
+                            <img src="img/email.png" alt="" width="25px">
+                        </div>
+                        <input type="email" name="email" class="input-form" placeholder="Insira seu E-mail" required>
+                    </div>
+                    <div class="inputs-group">
+                        <div class="icon">
+                            <img src="img/lock.png" alt="" width="25px">
+                        </div>
+                        <input type="password" name="senha" class="input-form" placeholder="Insira sua senha" required>
+                    </div>
+                    <div class="inputs-group">
+                        <div class="icon">
+                            <img src="img/lock.png" alt="" width="25px">
+                        </div>
+                        <input type="password" name="cSenha" class="input-form" placeholder="Confirme sua senha" required>
+                    </div>
+                    <input type="submit" value="Cadastrar" name="cadastrar" class="btn-cadastro">
+                </div>
+            </div>
+        </form>
     </div>
 </body>
 </html>
