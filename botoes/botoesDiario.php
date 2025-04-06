@@ -26,7 +26,7 @@ if (isset($_POST['inserir'])) {
         $diarioDao->inserir($diario);
     }
 
-    header("Location: library.php?periodo=$periodo");
+    header("Location: diario.php?periodo=$periodo");
     exit();
 }
 
@@ -54,7 +54,7 @@ if (isset($_POST["atualizar"])) {
         $diarioDao->atualizar($diario);
     }
 
-    header("location: library.php?periodo=$periodo");
+    header("location: diario.php?periodo=$periodo");
 }
 
 if (isset($_POST["atualizar2"])) {

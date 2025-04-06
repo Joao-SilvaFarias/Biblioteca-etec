@@ -21,7 +21,8 @@
         </div>
         <nav class="nav-bar">
             <a href="index.php" class="link-nav">Home</a>
-            <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
+            <a href="#" onclick="openSearchBar()" class="link-nav" style="font-weight: 600;">Search</a>
+            <a href="library.php" class="link-nav">Library</a>
             <a href="login.php" class="link-nav">Login</a>
         </nav>
     </header>

@@ -10,12 +10,7 @@
 
 <body>
     <?php
-    $periodo = $_GET["periodo"];
     include_once("botoes/botoesDiario.php");
-    if(!isset($_SESSION["id"])){
-        header("location: login.php");
-        exit();
-    }
     ?>
     <header class="header">
         <div class="div-logo">
@@ -24,65 +19,19 @@
         <nav class="nav-bar">
             <a href="index.php" class="link-nav">Home</a>
             <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
+            <a href="library.php" class="link-nav" style="font-weight: 600;">Library</a>
             <a href="login.php" class="link-nav">Login</a>
         </nav>
     </header>
-    <div class="div-titulo">
-        <div>
-            <h1 class="titulo">Período</h1>
-            <h2 class="subtitulo">M-TEC <?php echo $periodo?></h2>
+    <div class="div-titulo" style="text-align: center;">
+        <div style="width: 100%; display: flex; justify-content: center">
+            <h1 class="titulo">Selecione o período</h1>
         </div>
     </div>
-    <main>
-        <form action="" method="post">
-            <section>
-                <div class="registros">
-                    <div class="form-registros">
-                        <div class="campos-form-registros">
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Data</label>
-                                <input type="date" name="data" id="data" class="input-registros" >
-                            </div>
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Qtd. Emprestimos</label>
-                                <input type="number" name="qtdEmprestimos" id="emprestimos" class="input-registros"
-                                    placeholder="00" >
-                            </div>
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Qtd. Devolvidos</label>
-                                <input type="number" name="qtdDevolvidos" id="devolvidos" class="input-registros"
-                                    placeholder="00" >
-                            </div>
-                            <div class="campo">
-                                <label for="" class="label-campo-registro">Qtd. Renovações</label>
-                                <input type="number" name="qtdRenovacoes" id="renovacoes" class="input-registros"
-                                    placeholder="00" >
-                            </div>
-                        </div>
-                        <input type="submit" value="Enviar" class="btn-enviar" name="inserir">
-                    </div>
-                    <div class="diarios">
-                        <?php
-
-                        $diarioDao->lista($periodo);
-
-                        ?>
-                    </div>
-                </div>
-                <div class="gerencia">
-                    <h3 class="titulo-gerencia">Gerência</h3>
-                    <div class="campo-gerencia">
-                        <label for="" class="label-campo-gerencia">Bibliotecário</label>
-                        <input type="text" name="bibliotecario" id="" class="input-gerencia"
-                            placeholder="Nome completo" >
-                    </div>
-                    <div class="campo-gerencia">
-                        <label for="" class="label-campo-gerencia">Assistente(opcional)</label>
-                        <input type="text" name="assistente" id="" class="input-gerencia" placeholder="Nome completo">
-                    </div>
-                </div>
-            </section>
-        </form>
+    <main style="gap: 40px; display: flex; flex-direction: column; box-shadow: 0px 0px 0px; width: 70%">
+    <a href="diario.php?periodo=Manhã"><button class="periodo">M-TEC MANHÃ</button></a>
+    <a href="diario.php?periodo=Tarde"><button class="periodo">M-TEC TARDE</button></a>
+    <a href="diario.php?periodo=Noite"><button class="periodo">M-TEC NOITE</button></a>
     </main>
 
     <script src="js/script.js"></script>
