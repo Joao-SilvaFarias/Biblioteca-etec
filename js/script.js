@@ -6,6 +6,7 @@ searchBar.required = true;
 const divLogo = document.querySelector('.div-logo');
 const navBar = document.querySelector('.nav-bar');
 const header = document.querySelector('header');
+header.classList.add('header');
 const search = document.createElement('div');
 search.classList.add('search');
 const searchButton = document.createElement('button');
