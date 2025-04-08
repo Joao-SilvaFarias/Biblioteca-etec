@@ -11,23 +11,24 @@
             padding: 20px;
         }
     </style>
-    <title>Biblioteca Ermelinda</title>
+    <title>Ermelinda Library</title>
 </head>
 
 <body>
-    <header class="header">
+<header class="header">
         <div class="div-logo">
-            <a href="index.php"><img src="img/logo.png" alt="Logo" class="logo"></a>
+        <a href="index.php"><img src="img/logo.png" alt="Logo" class="logo"></a>
         </div>
         <nav class="nav-bar">
-            <a href="#" onclick="openSearchBar()" class="link-nav" style="font-weight: 600;">Pesquisar</a>
-            <a href="index.php" class="link-nav">Biblioteca</a>
+            <a href="#" onclick="openSearchBar()" class="link-nav">Search</a>
+            <a href="index.php" class="link-nav" style="font-weight: 600;">Library</a>
             <a class="link-nav" <?php 
             include_once("botoes/botoesDiario.php");
             if (isset($_SESSION["nome"])) {
                 echo "href='#' id='inicial' style='height: 50px; width: 50px; border-radius: 25px; display: flex; justify-content: center; align-items: center; background-color: #5034a5; font-weight: 700;'";
             } else{
-                echo "href='login.php'";            }
+                echo "href='login.php'";
+            }
             ?>>
                 <?php
                 
@@ -43,10 +44,10 @@
     </header>
     <div class="div-titulo">
         <div>
-            <h1 class="titulo">Período</h1>
+            <h1 class="titulo">Period</h1>
             <h2 class="subtitulo">M-TEC <?php $periodo = $_GET["periodo"];
             if(empty($periodo)){
-                $periodo = "Geral";
+                $periodo = "General";
             }
             echo $periodo;?></h2>
         </div>

@@ -56,27 +56,27 @@ class DiarioDao
 
             echo "<div class='diario'>
                     <div class='item'>
-                    <p class='title-item' >Data</p>
+                    <p class='title-item' >Date</p>
                     <p>$dataFormatada</p>
                     </div>
                     <div class='item'>
-                    <p class='title-item' >Emprestimos</p>
+                    <p class='title-item' >We lend</p>
                     <p>$qtdEmprestimos</p>
                     </div>
                     <div class='item'>
-                    <p class='title-item' >Devolvidos</p>
+                    <p class='title-item' >Returned</p>
                     <p>$qtdDevolvidos</p>
                     </div>
                     <div class='item'>
-                    <p class='title-item' >Renovações</p>
+                    <p class='title-item' >Renewals</p>
                     <p>$qtdRenovacoes</p>
                     </div>
                     <div class='buttons'>
                     <form method='post'>
                         <input type='hidden' value='$id' name='id'>
-                        <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
+                        <input type='submit' name='deletar' value='Delete' class='btn-deletar-diario'>
                     </form>
-                    <div class='btn-deletar-diario' id='btn-editar'><a href='update.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo'>Editar</a></div>
+                    <div class='btn-deletar-diario' id='btn-editar'><a href='update.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo'>Edit</a></div>
                     </div>
                 </div>";
         }
@@ -118,7 +118,7 @@ class DiarioDao
     function pesquisar($pesquisa1, $periodo)
     {
 
-        if ($periodo != "Geral") {
+        if ($periodo != "General") {
             $pesquisa = "%$pesquisa1%";
             $sql = "select * from diario where _data like ? and periodo = ? and fk_usuario = ?";
             $stmt = $this->connection->prepare($sql);
@@ -140,27 +140,27 @@ class DiarioDao
 
                     echo "<div class='diario'>
                             <div class='item'>
-                            <p class='title-item' >Data</p>
+                            <p class='title-item' >Date</p>
                             <p>$dataFormatada</p>
                             </div>
                             <div class='item'>
-                            <p class='title-item' >Emprestimos</p>
+                            <p class='title-item' >We lend</p>
                             <p>$qtdEmprestimos</p>
                             </div>
                             <div class='item'>
-                            <p class='title-item' >Devolvidos</p>
+                            <p class='title-item' >Returned</p>
                             <p>$qtdDevolvidos</p>
                             </div>
                             <div class='item'>
-                            <p class='title-item' >Renovações</p>
+                            <p class='title-item' >Renewals</p>
                             <p>$qtdRenovacoes</p>
                             </div>
                             <div class='buttons'>
                             <form method='post'>
                                 <input type='hidden' value='$id' name='id'>
-                                <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
+                                <input type='submit' name='deletar' value='Delete' class='btn-deletar-diario'>
                             </form>
-                            <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Editar</a></div>
+                            <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Edit</a></div>
                             </div>
                         </div>";
                 }
@@ -189,27 +189,27 @@ class DiarioDao
 
                     echo "<div class='diario'>
                             <div class='item'>
-                            <p class='title-item' >Data</p>
+                            <p class='title-item' >Date</p>
                             <p>$dataFormatada</p>
                             </div>
                             <div class='item'>
-                            <p class='title-item' >Emprestimos</p>
+                            <p class='title-item' >We lend</p>
                             <p>$qtdEmprestimos</p>
                             </div>
                             <div class='item'>
-                            <p class='title-item' >Devolvidos</p>
+                            <p class='title-item' >Returned</p>
                             <p>$qtdDevolvidos</p>
                             </div>
                             <div class='item'>
-                            <p class='title-item' >Renovações</p>
+                            <p class='title-item' >Renewals</p>
                             <p>$qtdRenovacoes</p>
                             </div>
                             <div class='buttons'>
                             <form method='post'>
                                 <input type='hidden' value='$id' name='id'>
-                                <input type='submit' name='deletar' value='Deletar' class='btn-deletar-diario'>
+                                <input type='submit' name='deletar' value='Delete' class='btn-deletar-diario'>
                             </form>
-                            <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Editar</a></div>
+                            <div class='btn-deletar-diario' id='btn-editar'><a href='listaUpdate.php?id=$id&data=$data&emprestimos=$qtdEmprestimos&devolvidos=$qtdDevolvidos&renovacoes=$qtdRenovacoes&bibliotecario=$bibliotecario&assistente=$assistente&periodo=$periodo&pesquisa=$pesquisa1'>Edit</a></div>
                             </div>
                         </div>";
                 }

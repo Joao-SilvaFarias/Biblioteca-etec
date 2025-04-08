@@ -11,7 +11,7 @@ const search = document.createElement('div');
 search.classList.add('search');
 const searchButton = document.createElement('button');
 searchButton.classList.add('search-btn');
-searchButton.textContent = 'Pesquisar';
+searchButton.textContent = 'Search';
 searchButton.name = 'pesquisar';
 const form = document.createElement('form');
 form.method = 'post';
@@ -30,17 +30,17 @@ btnClosePopUp.classList.add('btn-close-pop-up');
 btnClosePopUp.textContent = "X";
 const titlePopUp = document.createElement('h1');
 titlePopUp.classList.add('title-pop-up');
-titlePopUp.textContent = "Tem certeza?";
+titlePopUp.textContent = "Are you sure?";
 const pPopUp = document.createElement('p');
 pPopUp.classList.add('p-pop-up');
-pPopUp.textContent = "Aviso de segurança. Você está prestes a encerrar sua sessão. Sair encerrará todas as atividades em andamento";
+pPopUp.textContent = "Security warning. You are about to log out. Logging out will end all ongoing activity.";
 const btnContinuar = document.createElement('div');
 btnContinuar.classList.add('btn-continuar');
-btnContinuar.textContent = "Continuar"
+btnContinuar.textContent = "Continue"
 const btnSair = document.createElement('button');
 btnSair.classList.add('btn-sair');
 btnSair.name = 'btnSair';
-btnSair.textContent = "Sair";
+btnSair.textContent = "Exit";
 const divFormSair1 = document.createElement('div');
 const divFormSair2 = document.createElement('div');
 divFormSair1.classList.add('div-form-sair');
@@ -103,4 +103,4 @@ function openSearchBar() {
     header.style.justifyContent = 'center';
     header.appendChild(form);
     header.appendChild(btnClose);
-}
+}zz
