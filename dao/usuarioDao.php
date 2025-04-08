@@ -34,7 +34,7 @@ class UsuarioDao
             $_SESSION["nome"] = $row["nome"];
             return $row["id"];
         } else {
-            echo "<script>alert('Usuário não encontrado')</script>";
+            echo "<script>alert('User not found')</script>";
         }
     }
 
@@ -51,7 +51,7 @@ class UsuarioDao
             $_SESSION["nome"] = $row["nome"];
             return $row["id"];
         } else {
-            echo "<script>alert('Usuário não encontrado')</script>";
+            echo "<script>alert('User not found')</script>";
         }
     }
 

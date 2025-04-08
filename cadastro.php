@@ -20,7 +20,7 @@
                     <div class="imagem">
                         <img src="img/user_icon.png" alt="" width="50px">
                     </div>
-                    <h1 class="title" style="font-size: 1.5rem">Bem vindo à biblioteca</h1>
+                    <h1 class="title" style="font-size: 1.5rem">Welcome from library</h1>
                 </div>
                 <div class="campos-form" style="gap: 20px;">
                     <h1 class="title"

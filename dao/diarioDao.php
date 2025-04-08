@@ -165,7 +165,7 @@ class DiarioDao
                         </div>";
                 }
             } else {
-                echo "<h1>Nenhum resultado encontrado</h1>";
+                echo "<h1>No results found</h1>";
             }
         } else{
             $pesquisa = "%$pesquisa1%";
@@ -214,7 +214,7 @@ class DiarioDao
                         </div>";
                 }
             } else {
-                echo "<h1>Nenhum resultado encontrado</h1>";
+                echo "<h1>No results found</h1>";
             }
         }
 
