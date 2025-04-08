@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
@@ -26,7 +26,7 @@
                     <div class="imagem">
                         <img src="img/user_icon.png" alt="" width="50px">
                     </div>
-                    <h1 class="title" style="font-size: 1.5rem">Bem vindo à biblioteca</h1>
+                    <h1 class="title" style="font-size: 1.5rem">Welcome to the library</h1>
                 </div>
                 <div class="campos-form">
                     <h1 class="title"
@@ -36,16 +36,16 @@
                         <div class="icon">
                             <img src="img/email.png" alt="" width="25px">
                         </div>
-                        <input type="email" name="email" class="input-form" placeholder="Insira seu E-mail" required>
+                        <input type="email" name="email" class="input-form" placeholder="Enter your email" required>
                     </div>
                     <div class="inputs-group">
                         <div class="icon">
                             <img src="img/lock.png" alt="" width="25px">
                         </div>
-                        <input type="password" name="senha" class="input-form" placeholder="Senha" required>
+                        <input type="password" name="senha" class="input-form" placeholder="Password" required>
                     </div>
-                    <input type="submit" value="Entrar" name="login" class="btn-cadastro">
-                    <a href="cadastro.php" class="link-cadastro">Cadastrar-se</a>
+                    <input type="submit" value="To enter" name="login" class="btn-cadastro">
+                    <a href="cadastro.php" class="link-cadastro">Register</a>
                 </div>
             </div>
         </form>
